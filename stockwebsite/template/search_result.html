@@ -1,0 +1,46 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Store search</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
+</head>
+
+<body>
+    <div class="flex-container page">
+        <div class="flex-container head">
+            <div class="flex-container head2">
+                <a href="back/" style="font-size: 2.5em;">PENSHOP</a>
+                <a href="back/">HOME</a>
+            </div>
+            <!-- <form action="search/" class="search">
+                <input type="search" name="search" id="Name" placeholder="Search product">
+                <button type="submit"><i class="fa fa-search"></i></button>
+            </form> -->
+        </div>
+        <div class="flex-container content">
+            <h1>Search result</h1>
+            <div class="flex-container product">
+                {% for x in item %}
+                <div class="itembox">
+                    <div class="item_detail">
+                        <img src="{% get_static_prefix %}pic/{{ x.id }}.png">
+                        <h2>{{x.name}}</h2>
+                        <p style="font-size: 10px; margin: 0;">{{x.id}}</p>
+                        <div class="itembox_inside">
+                            <p style="font-size: 1em; font-weight: bold;">{{x.price}} ฿</p>
+                            <p style="font-size: 0.8em;">{{x.quantity}} in stock</p>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
